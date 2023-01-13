@@ -82,15 +82,17 @@ class App extends Component {
     event.preventDefault();
     const { textInput, count } = this.state;
 
-    const name = user_list[Math.ceil(Math.random * user_list.length - 1)];
+    const name = user_list[Math.ceil(Math.random() * user_list.length - 1)];
 
     const backgroundColor =
       backgroundColorsList[
-        Math.ceil(Math.random * backgroundColorsList.length - 1)
+        Math.ceil(Math.random() * backgroundColorsList.length - 1)
       ];
 
     const profileBackground =
-      profileNameColors[Math.ceil(Math.random * profileNameColors.length - 1)];
+      profileNameColors[
+        Math.ceil(Math.random() * profileNameColors.length - 1)
+      ];
 
     const newChat = {
       id: uuidv4(),
@@ -101,7 +103,9 @@ class App extends Component {
       profileNameColor: { profileBackground },
       likeCount: { count },
     };
-    this.setState((prevState) => ({ chatList: prevState.chatList, newChat }));
+    this.setState((prevState) => ({
+      chatList: [...prevState.chatList, newChat],
+    }));
   };
 
   render() {
@@ -147,7 +151,7 @@ class App extends Component {
             </div>
           </div>
           <div className="chat-container">
-            <div>
+            <div className="chat-ff">
               <div className="chat-profile-container">
                 <p className="main-profile">EG</p>
                 <h1 className="grp-profile-name">

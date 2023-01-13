@@ -7,11 +7,12 @@ const ChatItem = (props) => {
   // console.log(name);
   // console.log(text);
   // console.log(profileNameColor);
-  // console.log(bgcolor);
+  // console.log(bgColor);
 
   const onLikeButtonClicks = () => {
     buttonClicks(id);
   };
+
   return (
     <div className="item-container">
       <div>
